@@ -1,5 +1,5 @@
 export default function GoodsCard() {
   return (
-    <div></div>
+    <div>Placeholder</div>
   )
 }
