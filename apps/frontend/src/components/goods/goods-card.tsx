@@ -1,5 +1,11 @@
-export default function GoodsCard() {
+import { GoodsType } from '@webstore/core'
+
+interface GoodsCardProps {
+  goods: GoodsType
+}
+
+export default function GoodsCard({goods}:GoodsCardProps) {
   return (
-    <div>Placeholder</div>
+    <div>{goods.name}</div>
   )
 }

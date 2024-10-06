@@ -1,3 +1,4 @@
+import GoodsStock from '@/components/goods/goods-stock'
 import Footer from '@/components/template/footer'
 import Header from '@/components/template/header'
 import Main from '@/components/template/main'
@@ -9,7 +10,9 @@ export default function Home() {
       bg-gradient-to-br from-cyan-500 to-indigo-500
     ">
       <Header />
-      <Main />
+      <Main>
+        <GoodsStock />
+      </Main>
       <Footer />
     </div>
   )
