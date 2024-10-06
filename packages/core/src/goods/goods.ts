@@ -1,11 +1,13 @@
 export default interface GoodsType {
-  id: number | string,
+  id: number,
+  publicId: string
   name: string,
   description?: string,
   brand: string,
   model: string,
   picture?: string,
-  rate?: number,
   videoReview?: string,
+  rate?: number,
+  price: number,
   tags: string[]
 }

@@ -19,8 +19,8 @@ model Goods {
   model       String
   picture     String?
   videoReview String? @map("video_review")
-  rate        Int?
-  slug        String  @unique
+  rate        Float?
+  price       Float
   Tag         Tag[]
 
   @@map("goods")
@@ -30,7 +30,7 @@ model Tag {
   goodsId Int    @map("goods_id")
   name    String
 
-  goods Goods @relation(fields: [goodsId], references: [id])
+  goods Goods @relation(fields: [goodsId], references: [id], onDelete: Cascade)
 
   @@unique([goodsId, name])
   @@map("tag")

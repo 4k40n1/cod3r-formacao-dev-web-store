@@ -1,3 +1,4 @@
 import GoodsType from './goods'
+import Slug from './slug'
 
-export type { GoodsType }
+export type { GoodsType, Slug }
