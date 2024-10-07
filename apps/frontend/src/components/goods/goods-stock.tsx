@@ -6,7 +6,7 @@ export default function GoodsStock() {
   const {goodsList} = useGoods()
 
   return goodsList.length ? (
-    <div className='flex gap-8 flex-wrap justify-between content-stretch'>{
+    <div className='flex gap-8 flex-wrap justify-center content-stretch max-w-max'>{
       Array.isArray(goodsList) ? (
         goodsList.map((goods, index) => {
           return <GoodsCard key={index} goods={goods} />

@@ -11,7 +11,7 @@ export default function GoodsCard({goods, key}:GoodsCardProps) {
   return (
     <div
       key={key}
-      className='flex flex-col bg-violet-950 border border-white/10
+      className='flex flex-col bg-custom-500 border border-white/20 shadow-md
       rounded-xl relative max-w-80 p-8 hover:scale-110 transition-transform'
     >
       <div className='w-full h-48 relative'>
@@ -21,16 +21,16 @@ export default function GoodsCard({goods, key}:GoodsCardProps) {
           className='object-contain'
         />
       </div>
-      <div className='flex-1 flex flex-col gap-3 p-5 border-t border-white/10'>
+      <div className='flex-1 flex flex-col gap-3 p-5 border-t border-white/20'>
         <span className='text-lg font-semibold text-white'>{goods.name}</span>
         <div className='flex-1' />
-        <span className='text-sm text-emerald-400'>{goods.price}</span>
+        <span className='text-sm text-custom-400'>{goods.price}</span>
       </div>
 
       <button
-        className='flex justify-center items-center gap-2 h-8
-        bg-violet-700 border-violet-950 hover:border-emerald-500
-        text-violet-950 hover:text-emerald-500
+        className='flex justify-center items-center gap-2 h-8 shadow-md
+        bg-custom-400 border-custom-500 hover:border-custom-100
+        text-custom-300 hover:text-custom-100
         border-2 rounded-full transition-colors'
       >
         <FaCartPlus size={20} />

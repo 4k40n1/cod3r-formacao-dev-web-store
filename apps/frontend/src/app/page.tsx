@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className='
       flex flex-col items-center justify-items-center h-screen w-screen
-      bg-gradient-to-br from-cyan-500 to-indigo-500
+      bg-gradient-to-br from-custom-200 to-custom-100
     '>
       <Header />
       <Main>
