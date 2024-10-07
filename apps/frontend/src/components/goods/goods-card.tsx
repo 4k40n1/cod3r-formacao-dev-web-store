@@ -1,5 +1,6 @@
 import { GoodsType } from '@webstore/core'
 import Image from 'next/image'
+import Link from 'next/link'
 import { FaCartPlus } from 'react-icons/fa6'
 
 interface GoodsCardProps {
@@ -9,8 +10,9 @@ interface GoodsCardProps {
 
 export default function GoodsCard({goods, key}:GoodsCardProps) {
   return (
-    <div
+    <Link
       key={key}
+      href={`/${goods.publicId}`}
       className='flex flex-col bg-custom-500 border border-white/20 shadow-md
       rounded-xl relative max-w-80 p-8 hover:scale-110 transition-transform'
     >
@@ -37,6 +39,6 @@ export default function GoodsCard({goods, key}:GoodsCardProps) {
         <span>Add to Cart</span>
       </button>
 
-    </div>
+    </Link>
   )
 }

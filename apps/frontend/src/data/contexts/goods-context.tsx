@@ -1,12 +1,13 @@
 'use client'
-import { GoodsFilter, GoodsType } from '@webstore/core'
+import { GoodsById, GoodsFilter, GoodsType } from '@webstore/core'
 import { createContext, ReactNode, useCallback, useEffect, useState } from 'react'
 import useApi from '../hooks/useApi'
 
 export interface GoodsContextProps {
   goodsList: GoodsType[] | string,
   search: string,
-  setSearch: (search: string) => void
+  setSearch: (search: string) => void,
+  goodsById: (id: string) => GoodsType | null
 }
 
 const GoodsContext = createContext<GoodsContextProps>({} as any)
@@ -37,11 +38,17 @@ export function GoodsProvider({children}:GoodsProviderProps) {
     return new GoodsFilter().execute(search, goodsList)
   }
 
+  const goodsById = (id: string) => {
+    if (!Array.isArray(goodsList)) return null
+    return new GoodsById().execute(id, goodsList)
+  }
+
   return (
     <GoodsContext.Provider value={{
       get goodsList() {return getGoodsList()},
       search,
-      setSearch
+      setSearch,
+      goodsById
     }}>
       {children}
     </GoodsContext.Provider>

@@ -22,13 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoodsProvider>
-        <body
-          className={`${notoSans.className} antialiased`}
-        >
+      <body
+        className={`${notoSans.className} antialiased`}
+      >
+        <GoodsProvider>
           {children}
-        </body>
-      </GoodsProvider>
+        </GoodsProvider>
+      </body>
     </html>
   )
 }
