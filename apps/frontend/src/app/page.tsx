@@ -5,10 +5,10 @@ import Main from '@/components/template/main'
 
 export default function Home() {
   return (
-    <div className="
-      flex flex-col items-center justify-items-center min-h-screen w-screen
+    <div className='
+      flex flex-col items-center justify-items-center h-screen w-screen
       bg-gradient-to-br from-cyan-500 to-indigo-500
-    ">
+    '>
       <Header />
       <Main>
         <GoodsStock />

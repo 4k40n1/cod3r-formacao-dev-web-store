@@ -1,15 +1,21 @@
 'use client'
 import useGoods from '@/data/hooks/useGoods'
+import GoodsCard from './goods-card'
 
 export default function GoodsStock() {
   const {goodsList} = useGoods()
+
   return goodsList.length ? (
-    <div>
-      {goodsList.map((goods, index) => {
-        return <div key={index}>{goods.name}</div>
-      })}
-    </div>
+    <div className='flex gap-8 flex-wrap justify-between content-stretch'>{
+      Array.isArray(goodsList) ? (
+        goodsList.map((goods, index) => {
+          return <GoodsCard key={index} goods={goods} />
+        })
+      ) : (
+        <div className='text-white'>{goodsList.toString()}</div>
+      )
+    }</div>
   ) : (
-    <div>Goods not find!</div>
+    <div className='text-white'>Loading…</div>
   )
 }

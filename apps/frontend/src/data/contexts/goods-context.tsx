@@ -4,7 +4,7 @@ import { createContext, ReactNode, useCallback, useEffect, useState } from 'reac
 import useApi from '../hooks/useApi'
 
 export interface GoodsContextProps {
-  goodsList: GoodsType[],
+  goodsList: GoodsType[] | string,
   search: string,
   setSearch: (search: string) => void
 }
@@ -18,7 +18,7 @@ interface GoodsProviderProps {
 export function GoodsProvider({children}:GoodsProviderProps) {
   const {httpGet} = useApi()
   const [search, setSearch] = useState<string>('')
-  const [goodsList, setGoodsList] = useState<GoodsType[]>([])
+  const [goodsList, setGoodsList] = useState<GoodsType[] | string>([])
 
   const loadGoods =useCallback(
     async () => {
@@ -33,7 +33,7 @@ export function GoodsProvider({children}:GoodsProviderProps) {
   }, [loadGoods])
 
   const getGoodsList = () => {
-    if (!search) return goodsList
+    if (!search || !Array.isArray(goodsList)) return goodsList
     return new GoodsFilter().execute(search, goodsList)
   }
 

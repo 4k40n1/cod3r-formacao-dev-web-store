@@ -1,3 +1,5 @@
+import { FaCartShopping } from 'react-icons/fa6'
+
 export default function Header() {
   return (
     <header className="
@@ -6,7 +8,7 @@ export default function Header() {
     ">
       <div>Logo</div>
       <div className="flex-1" />
-      <div>Cart</div>
+      <div><FaCartShopping size={20} /></div>
     </header>
   )
 }

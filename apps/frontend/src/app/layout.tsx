@@ -6,7 +6,7 @@ import { GoodsProvider } from '@/data/contexts/goods-context'
 const notoSans = Noto_Sans({
   subsets: ['latin'],
   style: ['normal'],
-  weight: ['500'],
+  weight: ['400', '600'],
   preload: true
 })
 

@@ -5,7 +5,7 @@ const urlBase = process.env.NEXT_PUBLIC_API_URL
 export default function useApi() {
 
   async function extractData(response: Response) {
-    let content = ''
+    let content = 'Goods not found!'
     try {
       content = await response.text()
       return JSON.parse(content)
@@ -20,9 +20,14 @@ export default function useApi() {
       const uri = path.startsWith('/') ? path : `/${path}`
       const url = `${urlBase}${uri}`
       
-      const response = await fetch(url)
-      const data = await extractData(response)
-      return data
+      try {
+        const response = await fetch(url)
+        const data = await extractData(response)
+        return data
+      } catch (e) {
+        console.log(e)
+        return 'Something gone wrong!'
+      }
     }, []
   )
 
