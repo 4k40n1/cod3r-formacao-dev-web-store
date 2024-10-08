@@ -1,8 +1,4 @@
-import Footer from '@/components/template/footer'
-import Header from '@/components/template/header'
-import Main from '@/components/template/main'
-
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -12,11 +8,7 @@ export default function RootLayout({
       flex flex-col items-center justify-items-center h-screen w-screen
       bg-gradient-to-br from-custom-200 to-custom-100
     '>
-      <Header />
-      <Main>
-        {children}
-      </Main>
-      <Footer />
+      {children}
     </div>
   )
 }

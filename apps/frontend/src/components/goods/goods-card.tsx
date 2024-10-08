@@ -14,7 +14,7 @@ export default function GoodsCard({goods, key}:GoodsCardProps) {
       key={key}
       href={`/${goods.publicId}`}
       className='flex flex-col bg-custom-500 border border-white/20 shadow-md
-      rounded-xl relative max-w-80 p-8 hover:scale-110 transition-transform'
+      rounded-xl relative max-h-[500px] max-w-80 p-8 hover:scale-110 transition-transform'
     >
       <div className='w-full h-48 relative'>
         <Image

@@ -1,14 +1,21 @@
+import { ReactNode } from 'react'
 import { FaCartShopping } from 'react-icons/fa6'
 
-export default function Header() {
+interface HeaderProps {
+  children?: ReactNode
+}
+
+export default function Header({children}:HeaderProps) {
   return (
     <header className='
-      flex w-full py-6 px-8 shadow-md border-b
-      text-white bg-custom-100 border-white/20
-    '>
-      <div>Logo</div>
-      <div className="flex-1" />
-      <div><FaCartShopping size={20} /></div>
+        flex py-6 px-8 shadow-md border-b content-center w-full
+        text-white bg-custom-100 border-white/20
+      '>
+      <div className='py-2'>Logo</div>
+      <div className="flex-1">
+        {children}
+      </div>
+      <div className='py-2'><FaCartShopping size={20} /></div>
     </header>
   )
 }
