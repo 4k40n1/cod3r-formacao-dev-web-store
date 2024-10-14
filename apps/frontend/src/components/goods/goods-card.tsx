@@ -30,10 +30,12 @@ export default function GoodsCard({goods, key}:GoodsCardProps) {
       </div>
 
       <button
-        className='flex justify-center items-center gap-2 h-8 shadow-md
-        bg-custom-400 border-custom-500 hover:border-custom-100
-        text-custom-300 hover:text-custom-100
-        border-2 rounded-full transition-colors'
+        className='
+          flex justify-center items-center gap-2 h-8 shadow-md
+          bg-custom-400 border-custom-500 hover:border-custom-100
+          text-custom-300 hover:text-custom-100 active:bg-custom-300
+          border-2 rounded-full transition-colors
+        '
       >
         <FaCartPlus size={20} />
         <span>Add to Cart</span>
