@@ -8,7 +8,7 @@ interface HeaderProps {
 export default function Header({children}:HeaderProps) {
   return (
     <header className='
-        flex py-6 px-8 shadow-md border-b content-center w-full
+        flex py-2 px-8 shadow-md border-b content-center w-full
         text-white bg-custom-100 border-white/20
       '>
       <div className='py-2'>Logo</div>
