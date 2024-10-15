@@ -13,6 +13,18 @@ export class GoodsService {
     return { ...goods, tags: await this.getTags(goods.id) } as GoodsType;
   }
 
+  private async pushTagsOnMany(
+    goodsList: Partial<GoodsType>[] | Goods[],
+  ): Promise<GoodsType[]> {
+    const list = goodsList.map(
+      async (goods: Partial<GoodsType>): Promise<GoodsType> => {
+        return this.pushTags(goods);
+      },
+    );
+    const data = await Promise.all(list);
+    return data;
+  }
+
   private async getTags(id: number): Promise<string[]> {
     const tags = await this.prisma.tag
       .findMany({
@@ -58,12 +70,22 @@ export class GoodsService {
       .then(async (_goods: Goods): Promise<GoodsType> => {
         return await this.pushTags(_goods);
       });
+
     return goods;
   }
 
-  async get(): Promise<Partial<GoodsType>[]> {
-    const goodsList = await this.prisma.goods.findMany();
-    return goodsList as Partial<GoodsType>[];
+  // async get(): Promise<Partial<GoodsType>[]> {
+  //   const goodsList = await this.prisma.goods.findMany();
+  //   return goodsList as Partial<GoodsType>[];
+  // }
+
+  async get(): Promise<GoodsType[]> {
+    const goodsList = await this.prisma.goods
+      .findMany()
+      .then(async (_goodsList: Goods[]): Promise<Partial<GoodsType>[]> => {
+        return await this.pushTagsOnMany(_goodsList);
+      });
+    return goodsList as GoodsType[];
   }
 
   async delete(id: string): Promise<void> {

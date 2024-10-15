@@ -25,7 +25,26 @@ export default function GoodsCard({goods, key}:GoodsCardProps) {
       </div>
       <div className='flex-1 flex flex-col gap-3 p-5 border-t border-white/20'>
         <span className='text-lg font-semibold text-white'>{goods.name}</span>
-        <div className='flex-1' />
+        <div className='flex-1 flex flex-wrap gap-1'>
+          {
+            goods.tags.length>0 && goods.tags.map(
+              (value:string, index:number) => {
+                return (
+                  <div
+                    key={index}
+                    className='
+                      rounded-full content-baseline text-nowrap
+                      text-xs px-1 h-5 w-fit pt-[2px] shadow-sm shadow-black/25
+                      bg-white text-custom-500
+                    '
+                  >
+                    {value}
+                  </div>
+                )
+              }
+            )
+          }
+        </div>
         <span className='text-sm text-custom-400'>{goods.price}</span>
       </div>
 
@@ -36,6 +55,7 @@ export default function GoodsCard({goods, key}:GoodsCardProps) {
           text-custom-300 hover:text-custom-100 active:bg-custom-300
           border-2 rounded-full transition-colors
         '
+        onClick={(e) => {e.preventDefault()}}
       >
         <FaCartPlus size={20} />
         <span>Add to Cart</span>
