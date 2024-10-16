@@ -1,7 +1,8 @@
-import { GoodsType } from '@webstore/core'
+import { Currency, GoodsType } from '@webstore/core'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaCartPlus } from 'react-icons/fa6'
+import ReviewScore from '../shared/review-score'
 
 interface GoodsCardProps {
   goods: GoodsType,
@@ -22,6 +23,11 @@ export default function GoodsCard({goods, key}:GoodsCardProps) {
           fill alt='goods picture'
           className='object-contain'
         />
+        <div
+          className='absolute top-2 right-2'
+        >
+          <ReviewScore score={goods.rate ?? 0} />
+        </div>
       </div>
       <div className='flex-1 flex flex-col gap-3 p-5 border-t border-white/20'>
         <span className='text-lg font-semibold text-white'>{goods.name}</span>
@@ -34,7 +40,7 @@ export default function GoodsCard({goods, key}:GoodsCardProps) {
                     key={index}
                     className='
                       rounded-full content-baseline text-nowrap
-                      text-xs px-1 h-5 w-fit pt-[2px] shadow-sm shadow-black/25
+                      text-xs px-1 h-5 w-fit pt-0.5 shadow-sm shadow-black/25
                       bg-white text-custom-500
                     '
                   >
@@ -45,7 +51,9 @@ export default function GoodsCard({goods, key}:GoodsCardProps) {
             )
           }
         </div>
-        <span className='text-sm text-custom-400'>{goods.price}</span>
+        <span className='text-sm text-custom-400'>
+          {Currency.format(goods.price)}
+        </span>
       </div>
 
       <button
