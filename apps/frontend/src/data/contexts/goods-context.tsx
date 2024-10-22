@@ -29,7 +29,6 @@ export function GoodsProvider({children}:GoodsProviderProps) {
   )
 
   useEffect(() => {
-    console.log(process.env.NEXT_PUBLIC_API_URL)
     loadGoods()
   }, [loadGoods])
 
